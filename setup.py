@@ -11,6 +11,6 @@ setup(
     version="1.0",
     license="MIT",
     description="Measure of python performance in local.",
-    long_description=open('README.md').read(),      # always in md, with a README.md (convention!)
-    long_description_content_type="text/markdown",  # always in md !
+    long_description=open('README.md').read(),      
+    long_description_content_type="text/markdown",
 )
