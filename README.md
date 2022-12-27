@@ -7,7 +7,7 @@ This project aims to create an easy-to-use package for measuring the performance
 Install the requirements in requirements.txt, then install from source:
 
 ```bash
-pip install -U git+git://github.com/tboulet/Local-Python-Performance.git
+pip install localperf
 ```
 
 
