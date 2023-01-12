@@ -8,6 +8,7 @@ import os
 
 def build_plt_figure(list_inputs, list_mean_time, list_std_time, title : str):
     """Build the matplotlib figure for the CPU performance."""
+    plt.figure("Local Python Performance")
     plt.errorbar(list_inputs, list_mean_time, yerr=list_std_time, label=title)
     plt.xlabel("n_data")
     plt.ylabel("Time (s)")

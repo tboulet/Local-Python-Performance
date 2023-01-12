@@ -7,7 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from typing import Callable, List, Any, Tuple
 
-import torch
 from localperf.core.config import data_size
 
 def treat_one_data():
@@ -26,7 +25,7 @@ def compute(n_data : int):
         treat_one_data()
 
 
-def treat_batch(model : torch.nn.Module, batch : torch.Tensor, device : torch.cuda.device):
+def treat_batch(model : "torch.nn.Module", batch : "torch.Tensor", device : "torch.cuda.device"):
     """Realize a forward pass on a batch.
 
     Args:

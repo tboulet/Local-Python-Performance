@@ -7,8 +7,13 @@ setup(
     author_email="timothe.boulet0@gmail.com",
     
     packages=find_namespace_packages(),
-
-    version="1.0",
+    requires=[
+        "numpy",
+        "joblib",
+        "matplotlib",
+        "tqdm",
+    ],
+    version="1.1",
     license="MIT",
     description="Measure of python performance in local.",
     long_description=open('README.md').read(),      

@@ -80,10 +80,10 @@ def deal_with_results(
             string = title + "\n" + string + "\n"
         with open(log_filename, "a") as f:
             f.write(string)
-                
-    if do_plot:
-        build_plt_figure(list_inputs, list_mean_time, list_std_time, title)
+    
+    build_plt_figure(list_inputs, list_mean_time, list_std_time, title)
+    if do_plot:        
+        plt.show()
         
     if image_filename is not None:
-        build_plt_figure(list_inputs, list_mean_time, list_std_time, title)
         plt.savefig(image_filename)
