@@ -82,8 +82,9 @@ def deal_with_results(
             f.write(string)
     
     build_plt_figure(list_inputs, list_mean_time, list_std_time, title)
+    if image_filename is not None:
+        plt.savefig(image_filename)  
     if do_plot:        
         plt.show()
         
-    if image_filename is not None:
-        plt.savefig(image_filename)
+    

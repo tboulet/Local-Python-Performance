@@ -87,8 +87,8 @@ and for {n_measures} measures for each data. \n\
     print(title)
     
     def cpu_only_torch_compute(n_data : int):
-        batch = torch.rand(size = (n_data, n_neurons_torch_model), device = device)
-        treat_batch(model=model, batch=batch, device=device)
+        batch = torch.rand(size = (n_data, n_neurons_torch_model), device = "cpu")
+        treat_batch(model=model, batch=batch, device="cpu")
         
         
     list_mean_time_cpu, list_std_time = measure_time(
@@ -103,9 +103,9 @@ and for {n_measures} measures for each data. \n\
         list_mean_time=list_mean_time_cpu,
         list_std_time=list_std_time,
         do_print=True,
-        do_plot=do_plot,
-        log_filename=log_dir + "/gpu_torch.txt" if log_dir is not None else None,
-        image_filename=image_dir + "/gpu_torch.png" if image_dir is not None else None,
+        do_plot=not torch.cuda.is_available(),
+        log_filename=log_filename,
+        image_filename=image_filename,
         title = title,
     )        
     
@@ -139,10 +139,7 @@ and for {n_measures} measures for each data. \n\
             list_speed_up=list_speed_up,
             do_print=True,
             do_plot=do_plot,
-            log_filename=log_dir + "/gpu_torch.txt" if log_dir is not None else None,
-            image_filename=image_dir + "/gpu_torch.png" if image_dir is not None else None,
+            log_filename=log_filename,
+            image_filename=image_filename,
             title = title,
         )
-        
-    if do_plot:
-        plt.show()

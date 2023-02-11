@@ -13,7 +13,7 @@ pip install localperf
 
 # Usage
 
-You can measure the performance of your machine in terms of CPU, multiprocessing and GPU (pytorch and tensorflow) by running the commands below.
+You can measure the performance of your machine in terms of CPU, multiprocessing and GPU (pytorch only for now) by running the commands below.
 
 Relevant arguments for visualization are:
 - `--plot` : plot the results (default False)
@@ -29,7 +29,7 @@ Relevant arguments for visualization are:
 
 To measure the performance of your machine in terms of CPU, run the following command:
 ```bash
-python3 -m localperf.cpu
+python -m localperf.cpu
 ```
 
 Relevant arguments for the benchmark are:
@@ -44,7 +44,7 @@ Relevant arguments for the benchmark are:
 
 To measure the performance of your machine in terms of multiprocessing, run the following command:
 ```bash
-python3 -m localperf.multiprocessing
+python -m localperf.multiprocessing
 ```
 
 Relevant arguments for the benchmark are:
@@ -76,11 +76,11 @@ This give you information about each GPU recognized by the system : the name, th
 
     watch -n 0.1 nvidia-smi
 
-## Run the benchmark
+## Measure performance
 
 To measure the performance of your machine in terms of GPU, run the following command:
 ```bash
-python3 -m localperf.gpu_torch
+python -m localperf.gpu_torch
 ```
 Relevant arguments for the benchmark are:
 - `log_n_data` [log n data] : maximum number of data to do the benchmark (in log10 scale)

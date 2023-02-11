@@ -13,7 +13,7 @@ setup(
         "matplotlib",
         "tqdm",
     ],
-    version="1.1",
+    version="1.2",
     license="MIT",
     description="Measure of python performance in local.",
     long_description=open('README.md').read(),      
