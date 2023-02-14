@@ -9,7 +9,7 @@ from localperf.core.measuring import measure_time, deal_with_results
 from localperf.core.utils import create_dir, remove_file
 from localperf.core.compute import compute, treat_batch
 from localperf.core.config import default_log_n_data_torch, default_n_measures_torch, n_neurons_torch_model
-plt.show()
+
 class Net(torch.nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -112,7 +112,7 @@ and for {n_measures} measures for each data. \n\
     
     # Measure GPU torch performance
     if not torch.cuda.is_available():
-        print("No GPU available. Skipping GPU torch performance measurement")
+        print("WARNING : No GPU recognized by torch.cuda.is_available(). Skipping GPU torch performance measurement.")
     else:
         device = torch.device("cuda")
         model = get_model(device = device)

@@ -4,9 +4,10 @@ This project aims to create an easy-to-use package for measuring the performance
 
 # Installation
 
-Install the requirements in requirements.txt, then install from source:
+Install the requirements in requirements.txt, then install the package:
 
 ```bash
+pip install -r requirements.txt
 pip install localperf
 ```
 
