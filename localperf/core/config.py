@@ -6,9 +6,10 @@ default_n_measures_cpu = 10
 default_log_n_data_cpu = 4
 
 # Multiprocessing config
-default_n_measures_mp = 10
-default_log_n_data_mp = 4
-default_log2_n_process_mp = 3
+default_n_measures_parallel = 10
+default_log_n_data_parallel = 4
+default_log2_n_process_parallel = 3
+supported_libs = ["joblib", "mp", "ray"] 
 
 # Torch config
 default_n_measures_torch = 10

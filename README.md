@@ -34,24 +34,37 @@ python -m localperf.cpu
 ```
 
 Relevant arguments for the benchmark are:
-- `log_n_data` [log n data] : maximum number of data to do the benchmark (in log10 scale)
+- `log_n_data` [log n data] : maximum number of data to do the benchmark (in log10 scale). The treatment of 1 data is defined as the sum of integers from 1 to 1000 (with a for loop), it is used as a base unit of computation.
 - `n_measures` [n measures] : number of measures to do for each data size
 
-# Multiprocessing
+# Parallelization
 
 <p align="center">
-  <img src="assets/multiprocessing.png" alt="Multiprocessing performances" width="60%"/>
+  <img src="assets/multiprocessing.png" alt="Parallelization performances" width="60%"/>
 </p>
 
-To measure the performance of your machine in terms of multiprocessing, run the following command:
+To measure the performance of your machine in terms of parallelization, run the following command:
 ```bash
-python -m localperf.multiprocessing
+python -m localperf.parallel
 ```
 
 Relevant arguments for the benchmark are:
 - `log_n_data` [log n data] : maximum number of data to do the benchmark (in log10 scale)
 - `log2_n_process` [log2 n process] : maximum number of processes to do the benchmark (in log2 scale)
 - `n_measures` [n measures] : number of measures to do for each data size
+- `lib` [lib] : library to use for parallelization. Default is joblib. Currently supported libraries are multiprocessing (`mp`), joblib (`joblib`) and ray (`ray`). For ray you will need to install it with pip before running the benchmark.
+
+## Compare parallelization libraries
+
+To compare the performances of the different libraries, run the following command:
+```bash
+python -m localperf.parallel_benchmark
+```
+This will compare the performances of multiprocessing, joblib and ray. Relevant arguments are:
+- `log_n_data` [log n data] : maximum number of data to do the benchmark (in log10 scale)
+- `n_process` [n process] : number of processes to do the benchmark. Default behavior is to use your number of CPUs, given by `multiprocessing.cpu_count()`
+- `n_measures` [n measures] : number of measures to do for each data size
+
 
 # GPU (pytorch)
 
