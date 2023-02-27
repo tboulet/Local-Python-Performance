@@ -12,7 +12,7 @@ def build_plt_figure(list_inputs, list_mean_time, list_std_time, title : str):
     plt.errorbar(list_inputs, list_mean_time, yerr=list_std_time, label=title)
     plt.xlabel("n_data")
     plt.ylabel("Time (s)")
-    plt.legend(loc = "best  ")
+    plt.legend(loc = "best")
     plt.xscale("log")
     plt.yscale("log")
     
