@@ -100,3 +100,39 @@ Relevant arguments for the benchmark are:
 - `log_n_data` [log n data] : maximum number of data to do the benchmark (in log10 scale)
 - `n_measures` [n measures] : number of measures to do for each data size
 - `n_measures_gpu` [n measures gpu] : number of measures to do for each data size, on the GPU. If not specified, the same number of measures as on the CPU is done.
+
+
+
+
+# JAX
+
+## Install JAX
+
+On linux (note your CUDA version may vary) :
+```bash
+pip install jax[cuda12_pip] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+```
+
+On Windows (you won't be able to use GPU) :
+```bash
+pip install jax[cpu]
+```
+
+<p align="center">
+  <img src="assets/gpu_jax.png" alt="GPU with JAX performances" width="60%"/>
+</p>
+
+Run this code to check if JAX is installed and if it can use the GPU:
+```python
+import jax
+from jax.lib import xla_bridge
+print(f"Available devices: {jax.devices()}")
+print(f"Platform: {xla_bridge.get_backend().platform}")
+```
+
+## Measure performance
+
+To measure the performance of your machine in terms of GPU, run the following command:
+```bash
+python -m localperf.gpu_jax
+```

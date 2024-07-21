@@ -15,3 +15,8 @@ supported_libs = ["joblib", "mp", "ray"]
 default_n_measures_torch = 10
 default_log_n_data_torch = 6
 n_neurons_torch_model = 10
+
+# JAX config
+default_n_measures_jax = 20
+default_log_n_data_jax = 6
+n_data_jax = 1000
