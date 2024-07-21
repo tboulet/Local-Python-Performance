@@ -51,6 +51,14 @@ and for {n_measures} measures for each data. \n\
     create_dir(image_dir)
     remove_file(log_filename)
     
+    # Check if GPU is used
+    try:
+        x = jax.devices("gpu")[0]
+        gpu_is_used = True
+    except:
+        gpu_is_used = False
+        print("No GPU recognized by jax.devices().")
+    
     # Measure CPU_only jax performance
     device = "cpu"
     title = f"JAX with {device}"
@@ -76,7 +84,7 @@ and for {n_measures} measures for each data. \n\
         list_mean_time=list_mean_time_cpu,
         list_std_time=list_std_time,
         do_print=True,
-        do_plot=False,
+        do_plot=not gpu_is_used and do_plot,
         log_filename=log_filename,
         image_filename=image_filename,
         title = title,
@@ -84,7 +92,7 @@ and for {n_measures} measures for each data. \n\
     
     
     # Measure GPU JAX performance
-    if len(jax.devices("gpu")) == 0:
+    if not gpu_is_used:
         print("WARNING : No GPU recognized by jax.devices(). Skipping GPU jax performance measurement.")
     else:
         title = f"JAX with GPU"
